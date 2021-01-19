@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 // components
 import QuestionCard from "./components/QuestionCard";
+import { useState } from "react";
 
 const App = () => {
   const startTrivia = async () => {};
