@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 // components
 import QuestionCard from "./components/QuestionCard";
-import { useState } from "react";
 
 const App = () => {
+  const [loading, setLoading] = useState(false);
+  const [questions, setQuestions] = useState([]);
+  const [number, setNumber] = useState(0);
+  const [userAnswers, setUserAnswers] = useState([]);
+  const [score, setScore] = useState(0);
+  const [gameover, setGameOver] = useState(true);
+
   const startTrivia = async () => {};
   const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {};
   const nextQuestion = () => {};
