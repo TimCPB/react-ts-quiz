@@ -20,9 +20,7 @@ const App = () => {
   const [number, setNumber] = useState(0);
   const [userAnswers, setUserAnswers] = useState<AnswerObject[]>([]);
   const [score, setScore] = useState(0);
-  const [gameover, setGameOver] = useState(true);
-
-  console.log(questions);
+  const [gameOver, setGameOver] = useState(true);
 
   const startTrivia = async () => {
     setLoading(true);
@@ -44,9 +42,11 @@ const App = () => {
   return (
     <div className="App">
       <h1>React Quiz</h1>
-      <button className="start" onClick={startTrivia}>
-        Start
-      </button>
+      {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+        <button className="start" onClick={startTrivia}>
+          Start
+        </button>
+      ) : null}
       <p className="score">Score</p>
       <p>Loading Questions...</p>
       {/* <QuestionCard
