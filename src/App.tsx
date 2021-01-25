@@ -59,10 +59,14 @@ const App = () => {
           callback={checkAnswer}
         />
       ) : null}
-
-      <button className="Next" onClick={nextQuestion}>
-        Next Question
-      </button>
+      {!gameOver &&
+      !loading &&
+      userAnswers.length === number + 1 &&
+      number !== TOTAL_QUESTIONS - 1 ? (
+        <button className="Next" onClick={nextQuestion}>
+          Next Question
+        </button>
+      ) : null}
     </div>
   );
 };
