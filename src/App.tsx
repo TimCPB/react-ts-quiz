@@ -37,8 +37,30 @@ const App = () => {
     setNumber(0);
     setLoading(false);
   };
-  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {};
-  const nextQuestion = () => {};
+  const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (!gameOver) {
+      // users answer
+      const answer = e.currentTarget.value;
+      // check answer against correct answer
+      const correct = questions[number].correct_answer === answer; // correct is a boolean
+      // Add score if answer is correct
+      if (correct) setScore((prev) => prev + 1);
+      // Save answer in the array for user answers
+      const answerObject = {
+        question: questions[number].question,
+        answer, // ES6 syntax. This is the same as typing answer: answer
+        correct, // ES6 equivalent to correct: correct
+        correctAnswer: questions[number].correct_answer,
+      };
+      // var newAnswers = userAnswers;
+      // newAnswers.push(answerObject);
+      // setUserAnswers(newAnswers);
+      setUserAnswers((prev) => [...prev, answerObject]);
+    }
+  };
+  const nextQuestion = () => {
+    // Move onto the next quesiton
+  };
   return (
     <div className="App">
       <h1>React Quiz</h1>
