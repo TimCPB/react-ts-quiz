@@ -74,7 +74,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Wrapper>
-        <h1>Welcome to Tim's Quiz!</h1>
+        <h1>Welcome to Tim's Super Cool Quiz!</h1>
         {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <button className="start" onClick={startTrivia}>
             Start
